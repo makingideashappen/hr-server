@@ -7,14 +7,14 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Create a working directory
-WORKDIR /app
+WORKDIR /guestbook
 
 # Install dependencies
-COPY requirements.txt /app/
+COPY requirements.txt /guestbook/
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application files
-COPY . /app/
+COPY requirements.txt /guestbook/
 
 # Expose port 8000 for Django
 EXPOSE 8000
@@ -22,3 +22,7 @@ EXPOSE 8000
 # Run Django development server
 # If you’re using Gunicorn in production, you may want to start it here instead.
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "your_project_name.wsgi:application"]
+
+
+
+ 
