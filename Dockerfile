@@ -1,28 +1,20 @@
-# Use the official Python image.
-# Use python:3.9-slim or another version if you need a specific version.
-FROM python:3.9-slim
+# Use a Python base image
+FROM python:3.9
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# Create a working directory
+# Set the working directory
 WORKDIR /guestbook
 
-# Install dependencies
+# Copy the requirements file
 COPY requirements.txt /guestbook/
-RUN pip install --no-cache-dir -r requirements.txt
+
+# Install the dependencies
+RUN pip install -r requirements.txt
 
 # Copy the rest of the application files
-COPY requirements.txt /guestbook/
+COPY . /guestbook/
 
-# Expose port 8000 for Django
+# Expose the necessary port
 EXPOSE 8000
 
-# Run Django development server
-# If you’re using Gunicorn in production, you may want to start it here instead.
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "your_project_name.wsgi:application"]
-
-
-
- 
+# Command to run the application
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
