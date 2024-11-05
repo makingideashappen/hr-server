@@ -1,0 +1,47 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+
+# Django-specific
+db.sqlite3          # SQLite database file (if used in development)
+*.sqlite3           # Any other SQLite database file
+media/              # Media files (if you're using Django for file uploads)
+staticfiles/        # Collectstatic folder (if you run 'python manage.py collectstatic')
+.env                # Environment variables file
+
+# Ignore Django migrations - optional
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Virtual environment
+venv/
+env/
+*.env               # Any other environment files
+
+# VS Code workspace settings
+.vscode/
+
+# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# IDE specific files
+.idea/              # PyCharm/IntelliJ
+*.swp               # vi/vim swap files
+
+# Log files
+*.log
+
+# Other
+*.DS_Store          # macOS-specific files
+Thumbs.db           # Windows-specific files

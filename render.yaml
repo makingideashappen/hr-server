@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: hr-server
+    env: python
+    plan: free # Change to 'starter' or higher if you need more resources
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn your_project_name.wsgi:application --bind 0.0.0.0:8000"
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        value: "django-insecure-cd_6h5i-wv#ymwgitnk%(c$$n=m2&zu=s0g@td-04-ggx1l1&_"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: django-db
+          property: connectionString
+
+databases:
+  - name: django-db
+    plan: free # Adjust based on needs
+    postgresVersion: 13
