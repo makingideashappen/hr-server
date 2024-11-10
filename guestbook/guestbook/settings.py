@@ -14,7 +14,7 @@ SECRET_KEY = os.getenv(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "humancause.netlify.app").split(
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(
     ","
 )  # Render will pass this value
 
