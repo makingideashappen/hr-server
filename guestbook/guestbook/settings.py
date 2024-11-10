@@ -45,6 +45,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = "guestbook.urls"
@@ -110,9 +111,16 @@ MEDIA_ROOT = BASE_DIR / "media"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # CORS settings for APIs
-CORS_ORIGIN_ALLOW_ALL = (
+
+CORS_ALLOW_ALL_ORIGINS = (
     True  # For development, set to False for production and specify allowed origins
 )
+
+CORS_ALLOW_HEADERS = [
+    "content-type",
+    "x-csrftoken",
+    # add other headers if needed
+]
 
 # Google reCAPTCHA settings
 RECAPTCHA_SECRET_KEY = os.getenv("RECAPTCHA_SECRET_KEY", "YOUR_SECRET_KEY")
