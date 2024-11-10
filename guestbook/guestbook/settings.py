@@ -25,9 +25,12 @@ SECRET_KEY = "django-insecure-cd_6h5i-wv#ymwgitnk%(c$$n=m2&zu=s0g@td-04-ggx1l1&_
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["https://humancause.netlify.app/"]
+# ALLOWED_HOSTS = [
+#     "https://humancause.netlify.app/",
+# ]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "localhost:8000"]
 
 
 # Application definition
